@@ -149,3 +149,15 @@ This project is licensed under free and open-source software (FOSS) with no spec
 7. **Log In**: Enter email and password on the login page. If credentials are correct, get redirected to `/`.
 8. **Load Messages**: `index` method in `MainController` calls `getAllMessages` from `MessageService`, which retrieves all messages from the database.
 9. **Send Message**: Type a message and click "Send" (or press Enter). The application retrieves the username, current time, and message content, then calls `saveMessage` from `MessageService` to save the message to the database and redirects back to `/`.
+
+##Screens
+1. **Chat(main page)**:
+![Screen3-chat](https://github.com/user-attachments/assets/5765f5ff-e08b-47a1-b3f3-af10d275e294)
+2. **Signup**:
+![Screen2-signup](https://github.com/user-attachments/assets/ce4d83c0-a726-4f93-a58b-643f8f5b318e)
+3. **Login**:
+![Screen1-login](https://github.com/user-attachments/assets/453524cc-358d-43bd-a8c9-3dae00f45b2c)
+
+4. **Speed comparison between singlethreaded/multithreaded approach**:
+![Screen4-terminal-comparison_speed](https://github.com/user-attachments/assets/d82b94ae-4ae3-4c94-88a2-a51ff94dc5f1)
+
