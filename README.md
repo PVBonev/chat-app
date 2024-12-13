@@ -150,7 +150,7 @@ This project is licensed under free and open-source software (FOSS) with no spec
 8. **Load Messages**: `index` method in `MainController` calls `getAllMessages` from `MessageService`, which retrieves all messages from the database.
 9. **Send Message**: Type a message and click "Send" (or press Enter). The application retrieves the username, current time, and message content, then calls `saveMessage` from `MessageService` to save the message to the database and redirects back to `/`.
 
-##Screens
+## Screens
 1. **Chat(main page)**:
 ![Screen3-chat](https://github.com/user-attachments/assets/5765f5ff-e08b-47a1-b3f3-af10d275e294)
 2. **Signup**:
