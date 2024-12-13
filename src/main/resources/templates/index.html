@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Simple Blog</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: darkslategray;
+        }
+        .chat-container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #1a1a1a; /* Match the form background color */
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            color: #fff; /* Match the text color */
+        }
+        .chat-title {
+            text-align: center;
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: cadetblue; /* Match the title color */
+        }
+        .chat-messages {
+            height: 300px;
+            overflow-y: auto;
+            border: 1px solid #333; /* Match the form border color */
+            padding: 10px;
+            background-color: #333; /* Match the input background color */
+            border-radius: 4px;
+            margin-bottom: 20px;
+            color: #fff; /* Match the text color */
+        }
+        .chat-messages ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .chat-messages li {
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 10px; /* Rounded edges */
+            background-color: #444;
+            max-width: 25%;
+            word-wrap: break-word;
+            border: 2px solid darkslategray; /* Border color */
+        }
+        .chat-messages li strong {
+            display: block;
+            margin-bottom: 5px;
+            color: darkgray;
+        }
+        .chat-input {
+            display: flex;
+        }
+        .chat-input input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #333; /* Match the form border color */
+            border-radius: 4px 0 0 4px;
+            background-color: #333; /* Match the input background color */
+            color: #fff; /* Match the text color */
+        }
+        .chat-input button {
+            padding: 10px;
+            border: 1px solid #333; /* Match the form border color */
+            border-left: none;
+            background-color: #00bfff; /* Match the button background color */
+            color: #fff; /* Match the text color */
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+        }
+        .chat-input button:hover {
+            background-color: #00bfff96; /* Match the button hover color */
+        }
+    </style>
+    <script>
+        function refreshMessages() {
+            fetch('/')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.text();
+                })
+                .then(html => {
+                    const parser = new DOMParser();
+                    const doc = parser.parseFromString(html, 'text/html');
+                    const newMessagesList = doc.querySelector('#chat-messages ul');
+                    const currentMessagesList = document.querySelector('#chat-messages ul');
+
+                    if (newMessagesList && currentMessagesList) {
+                        currentMessagesList.innerHTML = newMessagesList.innerHTML;
+                    } else {
+                        console.error('Could not find messages list');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error refreshing messages:', error);
+                });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            setInterval(refreshMessages, 3000);
+        });
+    </script>
+</head>
+<body>
+<div class="chat-container">
+    <div class="chat-title">Welcome to Peci's Blog</div>
+    <div class="chat-messages" id="chat-messages">
+        <ul>
+            <li th:each="message : ${messages}">
+                <strong th:text="${message.username}">Username</strong>:
+                <span th:text="${message.content}">Message content</span>
+                <em th:text="${message.timestamp}">Timestamp</em>
+            </li>
+        </ul>
+    </div>
+    <div class="chat-input">
+        <form action="#" th:action="@{/send}" th:object="${message}" method="post">
+            <input type="text" th:field="*{content}" placeholder="Type your message here..." required>
+            <button type="submit">Send</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,42 @@
+server:
+  error:
+    include-message: always
+    include-binding-errors: always
+
+# psql -U postgres -d registration for terminal use
+# \dt
+# SELECT * FROM app_user;
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/registration
+    username: postgres
+    password: 12345
+  jpa:
+    hibernate:
+      ddl-auto: update #create-drop # after closing the application, the database will be dropped
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+    show_sql: true
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: peetbeet4005@gmail.com
+    password: vezp erxv phlb szuu
+
+    properties:
+      mail:
+        smtp:
+          ssl:
+            trust: "*"
+          auth: true
+          starttls:
+            enable: true
+          connectiontimeout: 5000
+          timeout: 3000
+          writetimeout: 5000
+#logging:
+#  level:
+#    org.springframework.security: TRACE
+# this helps trace which filter rejects the request
