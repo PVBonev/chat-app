@@ -47,7 +47,7 @@ src/
 ### Installation
 1. Clone the repository:
     ```sh
-    git clone https://github.com/yourusername/simple-blog.git
+    git clone https: https://github.com/PVBonev/chat-app
     cd simple-blog
     ```
 
