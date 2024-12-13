@@ -84,14 +84,11 @@ Users can post messages by typing in the input field and clicking the "Send" but
 Messages are displayed in real-time in the chat window. The messages are fetched from the server every 3 seconds.
 
 
-## Logging
+### Logging
 The application uses SLF4J for logging. Logs are printed to the console with information about accessing pages and sending messages.
 
-## Security
+### Security
 Spring Security is used to handle user authentication. Users must log in to post messages.
-
-## License
-This project is licensed under free and open-source software (FOSS) with no specific license.
 
 # Application Workflow Documentation
 
