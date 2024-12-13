@@ -148,11 +148,11 @@ Spring Security is used to handle user authentication. Users must log in to post
 
 ## Screens
 1. **Chat(main page)**:
-![Screen3-chat](https://github.com/user-attachments/assets/5765f5ff-e08b-47a1-b3f3-af10d275e294)
+![Screen3-chat](https://github.com/user-attachments/assets/20128834-fba7-4cfe-8b4a-20febae42517)
 2. **Signup**:
-![Screen2-signup](https://github.com/user-attachments/assets/ce4d83c0-a726-4f93-a58b-643f8f5b318e)
+![Screen2-signup](https://github.com/user-attachments/assets/eabbb653-cbf7-47a2-9967-f191b6a61e8e)
 3. **Login**:
-![Screen1-login](https://github.com/user-attachments/assets/453524cc-358d-43bd-a8c9-3dae00f45b2c)
+![Screen1-login](https://github.com/user-attachments/assets/cb33d6ae-ad2e-43c8-8a55-e6d652daa6c6)
 
 4. **Speed comparison between singlethreaded/multithreaded approach**:
 ![Screen4-terminal-comparison_speed](https://github.com/user-attachments/assets/d82b94ae-4ae3-4c94-88a2-a51ff94dc5f1)
