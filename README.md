@@ -1,9 +1,7 @@
-Sure, here is a basic structure for the documentation of your project:
-
-# Simple Blog Application
+# Simple Chat Application
 
 ## Overview
-This project is a simple blog application built using Java, Spring Boot, and Thymeleaf. It allows users to post messages and view messages from other users in real-time.
+This project is a simple chat application built using Java, Spring Boot, and Thymeleaf. It allows users to post messages and view messages from other users in real-time.
 
 ## Technologies Used
 - Java
@@ -14,18 +12,31 @@ This project is a simple blog application built using Java, Spring Boot, and Thy
 - Spring Security (for authentication)
 
 ## Project Structure
-```
-src/
+```src/
 ├── main/
 │   ├── java/
 │   │   └── com/example/demo4/
+│   │       ├── appuser/
+│   │       │   ├── AppUser.java
+│   │       │   ├── AppUserRepository.java
+│   │       │   ├── AppUserService.java
+│   │       │   └── AppUserRole.java
 │   │       ├── controller/
 │   │       │   └── MainController.java
+│   │       ├── email/
+│   │       │   ├── EmailSender.java
+│   │       │   └── EmailService.java
+│   │       ├── logger/
+│   │       │   └── LoggerService.java
 │   │       ├── messages/
 │   │       │   ├── AsyncMessageService.java
 │   │       │   ├── MessageEntity.java
 │   │       │   ├── MessageRepository.java
 │   │       │   └── MessageService.java
+│   │       ├── registration/
+│   │       │   ├── RegistrationController.java
+│   │       │   ├── RegistrationService.java
+│   │       │   └── RegistrationRequest.java
 │   │       └── security/
 │   │           └── WebSecurityConfig.java
 │   ├── resources/
@@ -72,21 +83,6 @@ Users can post messages by typing in the input field and clicking the "Send" but
 ### Viewing Messages
 Messages are displayed in real-time in the chat window. The messages are fetched from the server every 3 seconds.
 
-## Code Explanation
-
-### `MainController.java`
-Handles the main endpoints of the application:
-- `GET /`: Loads the index page and displays all messages.
-- `POST /send`: Handles the submission of new messages.
-
-### `MessageService.java`
-Provides methods to interact with the `MessageRepository` for saving and retrieving messages.
-
-### `AsyncMessageService.java`
-Provides asynchronous methods for saving messages to improve performance.
-
-### `index.html`
-The main HTML template for the application, using Thymeleaf for dynamic content rendering.
 
 ## Logging
 The application uses SLF4J for logging. Logs are printed to the console with information about accessing pages and sending messages.
@@ -161,3 +157,6 @@ This project is licensed under free and open-source software (FOSS) with no spec
 4. **Speed comparison between singlethreaded/multithreaded approach**:
 ![Screen4-terminal-comparison_speed](https://github.com/user-attachments/assets/d82b94ae-4ae3-4c94-88a2-a51ff94dc5f1)
 
+
+## License
+This project is licensed under free and open-source software (FOSS) with no specific license.
