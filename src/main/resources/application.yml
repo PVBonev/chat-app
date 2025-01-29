@@ -2,18 +2,14 @@ server:
   error:
     include-message: always
     include-binding-errors: always
-
-# psql -U postgres -d registration for terminal use
-# \dt
-# SELECT * FROM app_user;
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/registration
-    username: postgres
-    password: 12345
+    url: url
+    username: username
+    password: password
   jpa:
     hibernate:
-      ddl-auto: update #create-drop # after closing the application, the database will be dropped
+      ddl-auto: update
     properties:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
@@ -39,4 +35,3 @@ spring:
 #logging:
 #  level:
 #    org.springframework.security: TRACE
-# this helps trace which filter rejects the request
