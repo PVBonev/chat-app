@@ -1,9 +1,7 @@
-Sure, here is a basic structure for the documentation of your project:
-
-# Simple Blog Application
+# Simple Chat Application
 
 ## Overview
-This project is a simple blog application built using Java, Spring Boot, and Thymeleaf. It allows users to post messages and view messages from other users in real-time.
+This project is a simple chat application built using Java, Spring Boot, and Thymeleaf. It allows users to post messages and view messages from other users in real-time.
 
 ## Technologies Used
 - Java
@@ -14,18 +12,31 @@ This project is a simple blog application built using Java, Spring Boot, and Thy
 - Spring Security (for authentication)
 
 ## Project Structure
-```
-src/
+```src/
 ├── main/
 │   ├── java/
 │   │   └── com/example/demo4/
+│   │       ├── appuser/
+│   │       │   ├── AppUser.java
+│   │       │   ├── AppUserRepository.java
+│   │       │   ├── AppUserService.java
+│   │       │   └── AppUserRole.java
 │   │       ├── controller/
 │   │       │   └── MainController.java
+│   │       ├── email/
+│   │       │   ├── EmailSender.java
+│   │       │   └── EmailService.java
+│   │       ├── logger/
+│   │       │   └── LoggerService.java
 │   │       ├── messages/
 │   │       │   ├── AsyncMessageService.java
 │   │       │   ├── MessageEntity.java
 │   │       │   ├── MessageRepository.java
 │   │       │   └── MessageService.java
+│   │       ├── registration/
+│   │       │   ├── RegistrationController.java
+│   │       │   ├── RegistrationService.java
+│   │       │   └── RegistrationRequest.java
 │   │       └── security/
 │   │           └── WebSecurityConfig.java
 │   ├── resources/
@@ -47,7 +58,7 @@ src/
 ### Installation
 1. Clone the repository:
     ```sh
-    git clone https://github.com/yourusername/simple-blog.git
+    git clone https: https://github.com/PVBonev/chat-app
     cd simple-blog
     ```
 
@@ -66,36 +77,21 @@ Once the application is running, you can access it at `http://localhost:8080`.
 
 ## Features
 
+### Creating Account
+Users can create accounts which they can activate using their emails
+
 ### Posting Messages
 Users can post messages by typing in the input field and clicking the "Send" button. The messages are saved to the database and displayed in the chat window.
 
 ### Viewing Messages
 Messages are displayed in real-time in the chat window. The messages are fetched from the server every 3 seconds.
 
-## Code Explanation
-
-### `MainController.java`
-Handles the main endpoints of the application:
-- `GET /`: Loads the index page and displays all messages.
-- `POST /send`: Handles the submission of new messages.
-
-### `MessageService.java`
-Provides methods to interact with the `MessageRepository` for saving and retrieving messages.
-
-### `AsyncMessageService.java`
-Provides asynchronous methods for saving messages to improve performance.
-
-### `index.html`
-The main HTML template for the application, using Thymeleaf for dynamic content rendering.
 
 ## Logging
 The application uses SLF4J for logging. Logs are printed to the console with information about accessing pages and sending messages.
 
 ## Security
 Spring Security is used to handle user authentication. Users must log in to post messages.
-
-## License
-This project is licensed under free and open-source software (FOSS) with no specific license.
 
 # Application Workflow Documentation
 
@@ -136,9 +132,9 @@ This project is licensed under free and open-source software (FOSS) with no spec
 ## Step 9: Sending a Message
 - **Action**: The user types a message and clicks the "Send" button (or presses Enter).
 - **Result**:
-   - The application retrieves the username, current time, and contents of the message.
-   - The `saveMessage` method (either async or regular version) from `MessageService` is called, which in turn calls `addMessage` from `MessageRepository` to execute a query on the database and save the message.
-   - The user is then redirected back to `/`.
+    - The application retrieves the username, current time, and contents of the message.
+    - The `saveMessage` method (either async or regular version) from `MessageService` is called, which in turn calls `addMessage` from `MessageRepository` to execute a query on the database and save the message.
+    - The user is then redirected back to `/`.
 ## Summary
 1. **Access URL**: Navigate to `http://localhost:8080/` and get redirected to `/login`.
 2. **Register**: Click on register and go to `http://localhost:8080/register`, fill out the form, and submit.
@@ -149,3 +145,18 @@ This project is licensed under free and open-source software (FOSS) with no spec
 7. **Log In**: Enter email and password on the login page. If credentials are correct, get redirected to `/`.
 8. **Load Messages**: `index` method in `MainController` calls `getAllMessages` from `MessageService`, which retrieves all messages from the database.
 9. **Send Message**: Type a message and click "Send" (or press Enter). The application retrieves the username, current time, and message content, then calls `saveMessage` from `MessageService` to save the message to the database and redirects back to `/`.
+
+## Screens
+1. **Chat(main page)**:
+   ![Screen3-chat](https://github.com/user-attachments/assets/20128834-fba7-4cfe-8b4a-20febae42517)
+2. **Signup**:
+   ![Screen2-signup](https://github.com/user-attachments/assets/eabbb653-cbf7-47a2-9967-f191b6a61e8e)
+3. **Login**:
+   ![Screen1-login](https://github.com/user-attachments/assets/cb33d6ae-ad2e-43c8-8a55-e6d652daa6c6)
+
+4. **Speed comparison between singlethreaded/multithreaded approach**:
+   ![Screen4-terminal-comparison_speed](https://github.com/user-attachments/assets/d82b94ae-4ae3-4c94-88a2-a51ff94dc5f1)
+
+
+## License
+This project is licensed under free and open-source software (FOSS) with no specific license.
